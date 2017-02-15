@@ -32,7 +32,7 @@ tabs:
                 fields:
                     value:
                         type: text
-                        label: Origin
+                        label: Header
         allowedMethods:
             label: Allowed methods
             tab: Allowed methods
