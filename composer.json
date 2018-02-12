@@ -1,0 +1,13 @@
+{
+    "name": "offline/oc-cors-plugin",
+    "description": "Setup and manage Cross-Origin Resource Sharing headers in October CMS",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tobias Kündig",
+            "email": "tobias@offline.swiss"
+        }
+    ],
+    "require": {}
+}

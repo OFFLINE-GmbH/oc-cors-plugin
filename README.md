@@ -24,3 +24,22 @@ You can add `*` as an entry to `Allowed origins`, `Allowed headers` and `Allowed
 It is advised to be more explicit about these settings. You can add values for each header via the repeater fields.
 
 > It is important to set these intial settings once for the plugin to work as excpected!
+
+### Filesystem configuration
+
+As an alternative to the backend settings you can create a `config/config.php` file in the plugins root directory to configure it.
+
+The filesystem configuration will overwrite any defined backend setting.
+
+```php
+<?php
+// plugins/offline/cors/config/config.php
+return [
+    'supportsCredentials' => true,
+    'maxAge'              => 3600,
+    'allowedOrigins'      => ['*'],
+    'allowedHeaders'      => ['*'],
+    'allowedMethods'      => ['GET', 'POST'],
+    'exposedHeaders'      => [''],
+];
+```
