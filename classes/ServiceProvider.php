@@ -31,13 +31,12 @@ class ServiceProvider extends BaseServiceProvider
      */
     protected function getSettings()
     {
-        $supportsCredentials = (bool)Settings::get('supportsCredentials', false);
-        $maxAge              = (int)Settings::get('maxAge', 0);
-        $allowedOrigins      = $this->getValues(Settings::get('allowedOrigins', []));
-        $allowedHeaders      = $this->getValues(Settings::get('allowedHeaders', []));
-        $allowedMethods      = $this->getValues(Settings::get('allowedMethods', []));
-        $exposedHeaders      = $this->getValues(Settings::get('exposedHeaders', []));
-        $hosts               = $this->getValues(Settings::get('hosts', []));
+        $supportsCredentials = (bool)$this->getConfigValue('supportsCredentials', false);
+        $maxAge              = (int)$this->getConfigValue('maxAge', 0);
+        $allowedOrigins      = $this->getConfigValue('allowedOrigins', []);
+        $allowedHeaders      = $this->getConfigValue('allowedHeaders', []);
+        $allowedMethods      = $this->getConfigValue('allowedMethods', []);
+        $exposedHeaders      = $this->getConfigValue('exposedHeaders', []);
 
         return compact(
             'supportsCredentials',
@@ -45,9 +44,36 @@ class ServiceProvider extends BaseServiceProvider
             'allowedHeaders',
             'allowedMethods',
             'exposedHeaders',
-            'maxAge',
-            'hosts'
+            'maxAge'
         );
+    }
+
+    /**
+     * Returns an effective config value.
+     *
+     * If a filesystem config is available it takes precedence
+     * over the backend settings values.
+     *
+     * @param      $key
+     * @param null $default
+     *
+     * @return mixed
+     */
+    public function getConfigValue($key, $default = null)
+    {
+        return $this->filesystemConfig($key) ?: $this->getValues(Settings::get($key, $default));
+    }
+
+    /**
+     * Return the filesystem config value if available.
+     *
+     * @param string $key
+     *
+     * @return mixed
+     */
+    public function filesystemConfig($key)
+    {
+        return config('offline.cors::' . $key);
     }
 
     /**
