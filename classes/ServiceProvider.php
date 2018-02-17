@@ -79,12 +79,12 @@ class ServiceProvider extends BaseServiceProvider
     /**
      * Extract the repeater field values.
      *
-     * @param array $values
+     * @param mixed $values
      *
      * @return array
      */
-    protected function getValues(array $values)
+    protected function getValues($values)
     {
-        return collect($values)->pluck('value')->toArray();
+        return \is_array($values) ? collect($values)->pluck('value')->toArray() : $values;
     }
 }
