@@ -1,7 +1,7 @@
 {
     "name": "offline/oc-cors-plugin",
     "description": "Setup and manage Cross-Origin Resource Sharing headers in October CMS",
-    "type": "library",
+    "type": "october-plugin",
     "license": "MIT",
     "authors": [
         {
