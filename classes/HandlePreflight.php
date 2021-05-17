@@ -33,7 +33,7 @@ class HandlePreflight
             $preflight = $this->cors->handlePreflightRequest($request);
             $response->headers->add($preflight->headers->all());
         }
-        $response->setStatusCode(200);
+        $response->setStatusCode(204);
         return $response;
     }
 
