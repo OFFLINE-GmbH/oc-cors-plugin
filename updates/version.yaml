@@ -6,3 +6,5 @@
     - Added support for filesystem configuration file / Added plugin to Packagist (https://packagist.org/packages/offline/oc-cors-plugin)
 1.0.4:
     - Fixed minor bug when running the plugin without custom settings
+1.0.5:
+    - "Return proper 204 response code for preflight requests (thanks to @adrian-marinescu-ch on GitHub)"
