@@ -21,13 +21,23 @@ class CorsService
     private function normalizeOptions(array $options = [])
     {
         $options += [
-            'allowedOrigins'      => [],
             'supportsCredentials' => false,
-            'allowedHeaders'      => [],
-            'exposedHeaders'      => [],
-            'allowedMethods'      => [],
-            'maxAge'              => 0,
+            'maxAge' => 0,
         ];
+
+        // Make sure these values are arrays, if not specified in the backend settings.
+        $arrayKeys = [
+            'allowedOrigins',
+            'allowedHeaders',
+            'exposedHeaders',
+            'allowedMethods',
+        ];
+
+        foreach ($arrayKeys as $key) {
+            if (!$options[$key]) {
+                $options[$key] = [];
+            }
+        }
 
         // normalize array('*') to true
         if (in_array('*', $options['allowedOrigins'])) {
