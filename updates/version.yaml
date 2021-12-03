@@ -10,3 +10,5 @@
     - "Return proper 204 response code for preflight requests (thanks to @adrian-marinescu-ch on GitHub)"
 1.0.6:
     - "Dummy release to sync with Packagist version"
+1.0.7:
+    - "Optimized compatibility with October v2"
