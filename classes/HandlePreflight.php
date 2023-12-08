@@ -35,7 +35,7 @@ class HandlePreflight
             $response->headers->add($preflight->headers->all());
         }
 
-        $responseStatusCode = Settings::instance()->response_status_code ?? 204;
+        $responseStatusCode = Settings::get("responseStatusCode", 204);
         $response->setStatusCode($responseStatusCode);
 
         return $response;

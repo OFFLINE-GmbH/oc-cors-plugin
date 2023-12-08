@@ -53,7 +53,7 @@ tabs:
                     value:
                         type: text
                         label: Header
-        response_status_code:
+        responseStatusCode:
             label: Response status code
             tab: Settings
             type: radio
