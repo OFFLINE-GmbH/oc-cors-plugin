@@ -53,3 +53,13 @@ tabs:
                     value:
                         type: text
                         label: Header
+        preflightResponseStatusCode:
+            label: Response status code for preflight requests
+            tab: Settings
+            type: radio
+            span: left
+            default: 204
+            options:
+                204: '204'
+                200: '200'
+
