@@ -12,3 +12,5 @@
     - "Dummy release to sync with Packagist version"
 1.0.7:
     - "Optimized compatibility with October v2"
+1.1.0:
+    - "Added response status code to plugin settings"

@@ -53,3 +53,13 @@ tabs:
                     value:
                         type: text
                         label: Header
+        responseStatusCode:
+            label: Response status code
+            tab: Settings
+            type: radio
+            span: left
+            default: 204
+            options:
+                204: '204'
+                200: '200'
+

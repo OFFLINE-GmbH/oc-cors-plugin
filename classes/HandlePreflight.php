@@ -5,6 +5,7 @@ namespace OFFLINE\CORS\Classes;
 use Closure;
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Routing\Router;
+use OFFLINE\CORS\Models\Settings;
 
 class HandlePreflight
 {
@@ -33,7 +34,10 @@ class HandlePreflight
             $preflight = $this->cors->handlePreflightRequest($request);
             $response->headers->add($preflight->headers->all());
         }
-        $response->setStatusCode(204);
+
+        $responseStatusCode = Settings::get("responseStatusCode", 204);
+        $response->setStatusCode($responseStatusCode);
+
         return $response;
     }
 
