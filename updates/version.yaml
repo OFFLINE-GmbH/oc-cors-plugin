@@ -14,3 +14,5 @@
     - "Optimized compatibility with October v2"
 1.1.0:
     - "Added response status code to plugin settings"
+1.1.1:
+    - "Added response status code to plugin settings"

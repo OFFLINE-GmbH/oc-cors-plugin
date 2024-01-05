@@ -37,6 +37,7 @@ class ServiceProvider extends BaseServiceProvider
         $allowedHeaders      = $this->getConfigValue('allowedHeaders', []);
         $allowedMethods      = $this->getConfigValue('allowedMethods', []);
         $exposedHeaders      = $this->getConfigValue('exposedHeaders', []);
+        $preflightResponseStatusCode = $this->getConfigValue('preflightResponseStatusCode', 204);
 
         return compact(
             'supportsCredentials',
@@ -44,7 +45,8 @@ class ServiceProvider extends BaseServiceProvider
             'allowedHeaders',
             'allowedMethods',
             'exposedHeaders',
-            'maxAge'
+            'maxAge',
+            'preflightResponseStatusCode',
         );
     }
 

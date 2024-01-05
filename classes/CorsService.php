@@ -100,6 +100,11 @@ class CorsService
         return $response;
     }
 
+    public function preflightResponseStatusCode()
+    {
+        return array_get($this->options, 'preflightResponseStatusCode', 204);
+    }
+
     public function handlePreflightRequest(Request $request)
     {
         if (true !== $check = $this->checkPreflightRequestConditions($request)) {

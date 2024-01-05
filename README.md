@@ -35,11 +35,12 @@ The filesystem configuration will overwrite any defined backend setting.
 <?php
 // plugins/offline/cors/config/config.php
 return [
-    'supportsCredentials' => true,
-    'maxAge'              => 3600,
-    'allowedOrigins'      => ['*'],
-    'allowedHeaders'      => ['*'],
-    'allowedMethods'      => ['GET', 'POST'],
-    'exposedHeaders'      => [''],
+    'supportsCredentials'         => true,
+    'maxAge'                      => 3600,
+    'allowedOrigins'              => ['*'],
+    'allowedHeaders'              => ['*'],
+    'allowedMethods'              => ['GET', 'POST'],
+    'exposedHeaders'              => [''],
+    'preflightResponseStatusCode' => 204,
 ];
 ```

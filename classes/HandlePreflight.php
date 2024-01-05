@@ -35,8 +35,7 @@ class HandlePreflight
             $response->headers->add($preflight->headers->all());
         }
 
-        $responseStatusCode = Settings::get("responseStatusCode", 204);
-        $response->setStatusCode($responseStatusCode);
+        $response->setStatusCode($this->cors->preflightResponseStatusCode());
 
         return $response;
     }

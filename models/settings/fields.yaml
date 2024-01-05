@@ -53,8 +53,8 @@ tabs:
                     value:
                         type: text
                         label: Header
-        responseStatusCode:
-            label: Response status code
+        preflightResponseStatusCode:
+            label: Response status code for preflight requests
             tab: Settings
             type: radio
             span: left
